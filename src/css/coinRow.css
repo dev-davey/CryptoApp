@@ -1,0 +1,21 @@
+.container {
+  width: 90vw;
+  margin: auto;
+}
+
+.list-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.individuals {
+  min-width: 100px;
+  max-width: 600px;
+  border: 1px solid green;
+}
+
+.logo-img {
+  height: 30px;
+  width: auto;
+}
