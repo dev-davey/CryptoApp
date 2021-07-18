@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import CoinList from './components/CoinList'
+import StickyHeader from './components/StickyHeader';
 
 export default class App extends Component {
   constructor(props){
@@ -9,34 +10,16 @@ export default class App extends Component {
       data: ''
     }
   }
- 
- 
- 
-  apiCall = () => {
-    let baseUrl = "https://api.coinranking.com/v2/coins"
-    let proxyUrl = "https://cors-anywhere.herokuapp.com/"
-    let apiKey = "coinranking080fa3bfd720da3fc60a055162b0c049eb0ddfeb92a074de"
 
-    fetch(`${proxyUrl}${baseUrl}`, {
-	"method": "GET",
-	"headers": {
-    "Content-Type" : "application/json",
-		"x-rapidapi-key": `${apiKey}`,
-    "Access-Control-Allow-Origin" : "*"
-	}
-})
-.then(response => {
-	if(response.ok){
-    response.json().then((json) => {
-      console.log(json)
-      this.setState({response: json})
-      this.setState({data : this.state.response.data})
+  string = '1d'
+
+  nomicsCall = () => { 
+    fetch("https://api.nomics.com/v1/currencies/ticker?key=3d4688a133b735636eedb0cb329a8bcbcbf52de6&interval=1d,7d,30d&convert=USD&per-page=100&page=1")
+    .then(response => response.json())
+    .then(data => {console.log(data)
+      this.setState({data: data}) 
     })
-  }
-})
-.catch(err => {
-	console.error(err);
-});
+    .catch(error => console.log(error.message))
   }
 
 
@@ -44,7 +27,9 @@ export default class App extends Component {
   render() {
     return (
       <div>
+        <button onClick={this.nomicsCall}>nomics</button>
         <button onClick={this.apiCall}>hello</button>
+        <StickyHeader/>
       {this.state.data ? (
       <CoinList 
         data={this.state.data}

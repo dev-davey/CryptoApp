@@ -10,9 +10,24 @@
 }
 
 .individuals {
-  min-width: 100px;
-  max-width: 600px;
-  border: 1px solid green;
+  min-width: 130px;
+  width: 250px;
+  text-align: start;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.twoItems {
+  display: flex;
+  align-items: center;
+}
+
+.twoItems p {
+  margin-right: 5px;
+}
+
+.supply {
+  line-height: 0;
 }
 
 .logo-img {

@@ -1,30 +1,79 @@
 import React from 'react'
 import '../css/coinRow.css'
+import StickyHeader from './StickyHeader';
 
 export default function CoinRow(props) {
+
+    function convertToInternationalCurrencySystem (labelValue) {
+
+        // Nine Zeroes for Billions
+        if(labelValue > .01){
+        return Math.abs(Number(labelValue)) >= 1.0e+9
+    
+        ? (Math.abs(Number(labelValue)) / 1.0e+9).toFixed(2) + "B"
+        // Six Zeroes for Millions 
+        : Math.abs(Number(labelValue)) >= 1.0e+6
+    
+        ? (Math.abs(Number(labelValue)) / 1.0e+6).toFixed(2) + "M"
+        // Three Zeroes for Thousands
+        : Math.abs(Number(labelValue)) >= 1.0e+3
+    
+        ? (Math.abs(Number(labelValue)) / 1.0e+3).toFixed(2) + "K"
+    
+        : Math.abs(Number(labelValue)).toFixed(2);
+    }
+        if(labelValue < .01 && labelValue > .001){
+            return Math.abs(Number(labelValue)).toFixed(4)
+        }
+        else{
+            return labelValue
+        }
+    }
+
+    const formatter = new Intl.NumberFormat('en-US', {
+        minimumFractionDigits: 2,      
+        maximumFractionDigits: 2,
+     });
 
     return (
         <div className="container">
             <div className="list-items">
-            <div className="individuals">
-            <img className="logo-img" src={props.imageLocation}></img>
-            </div>
-            <div className="individuals">
-            <p>{props.name}</p>
-            </div>
-            <div className="individuals">
-            <p>{props.rank}</p>
-            </div>
-            <div className="individuals">
-            <p>{props.marketCap.slice(0, props.marketCap.indexOf('.'))}</p>
-            </div>
-            <div className="individuals">
-            <p>{props.price.slice(0, props.price.indexOf('.') + 3)}</p> 
-            </div>    
-            <div className="individuals">
-            <p>{props.change.slice(0, props.change.indexOf('.') + 3)}</p> 
-            </div>    
-            </div>
+                <div className="individuals twoItems">
+                <p>{props.rank}</p>
+                <img className="logo-img" src={props.imageLocation} alt='img logo'></img>
+                </div>
+
+                <div className="individuals">
+                <p>{props.name}</p>
+                </div>
+
+                <div className="individuals">
+                <p>{'$' + convertToInternationalCurrencySystem(props.price)}</p>
+                </div>
+
+                <div className="individuals">
+                <p>{'$' + convertToInternationalCurrencySystem(props.marketCap)}</p> 
+                </div>    
+
+                <div className="individuals">
+                <p>
+                {`${formatter.format(props.change * 100)}%`}</p> 
+                </div>
+
+                <div className="individuals">
+                <p>
+                {`${formatter.format(props.weekChange * 100)}%`}
+                </p> 
+                </div>    
+
+                <div className="individuals">
+                <p>{convertToInternationalCurrencySystem(props.volume.slice(0, props.volume.indexOf('.') + 3))}</p>  
+                </div>
+                <div className="individuals supply">
+                <p>{convertToInternationalCurrencySystem(props.circulatingSupply)}</p>
+                <p>{props.symbol}</p>  
+                </div>
+        </div>        
         </div>
     )
 }
