@@ -1,8 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../css/coinRow.css'
-import StickyHeader from './StickyHeader';
+
 
 export default function CoinRow(props) {
+    
+//changing colors based on positive or negative percentage changes
+    let change = props.change
+        let color = '';
+        if (change <= 0){
+             color = 'red'
+        }
+        else{
+            color = 'green'
+        }
+
+    let weekChange = props.weekChange
+        let weeklyColor
+        if (weekChange <= 0){
+         weeklyColor = 'red'
+        }
+        else{
+            weeklyColor = 'green'
+        }
+
 
     function convertToInternationalCurrencySystem (labelValue) {
 
@@ -56,12 +76,12 @@ export default function CoinRow(props) {
                 </div>    
 
                 <div className="individuals">
-                <p>
-                {`${formatter.format(props.change * 100)}%`}</p> 
+                <p className={color}>
+                {`${formatter.format(change * 100)}%`}</p> 
                 </div>
 
                 <div className="individuals">
-                <p>
+                <p className={weeklyColor}>
                 {`${formatter.format(props.weekChange * 100)}%`}
                 </p> 
                 </div>    

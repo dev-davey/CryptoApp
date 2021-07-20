@@ -7,6 +7,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid lightgray;
 }
 
 .individuals {
@@ -33,4 +34,13 @@
 .logo-img {
   height: 30px;
   width: auto;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+  margin-left: 5px;
 }

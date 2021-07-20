@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 import CoinList from './components/CoinList'
 import StickyHeader from './components/StickyHeader';
+import {
+  BrowserRouter as Router, 
+  Route, 
+} from 'react-router-dom';
+import './App.css'
+import NavBar from './components/NavBar';
 
 export default class App extends Component {
   constructor(props){
@@ -26,17 +32,19 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
-        <button onClick={this.nomicsCall}>nomics</button>
-        <button onClick={this.apiCall}>hello</button>
-        <StickyHeader/>
-      {this.state.data ? (
-      <CoinList 
-        data={this.state.data}
-      /> ): (<div></div>) 
-      }
+      <Router>
+      
+          <Route exact path="/" Component={App}></Route>
+          <NavBar/>
+          <StickyHeader/>
+          <button onClick={this.nomicsCall}>nomics</button>
+        {this.state.data ? (
+        <CoinList 
+          data={this.state.data}
+        /> ): (<div></div>) 
+        }
 
-      </div>
-    )
+        </Router>
+        )
   }
 }

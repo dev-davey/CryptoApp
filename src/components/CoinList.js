@@ -20,8 +20,8 @@ const CoinList = (props)=> {
         />
         ) 
     return (
-        <div className="row">
-            {coinSearch}
+        <div>
+        {coinSearch}
         </div>
     )
 }
