@@ -1,0 +1,39 @@
+.coinHeader {
+  display: flex;
+  height: 24vh;
+  align-items: center;
+  border-bottom: 2px solid lightgray;
+}
+
+.coinHeader img {
+  height: 9rem;
+}
+
+.coinHeader .leftSide {
+  display: flex;
+  flex: 35%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.coinHeader .leftSide h2 {
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+.coinHeader .rightSide {
+  flex: 65%;
+  display: flex;
+}
+
+.coinHeader .rightSide .rightSections {
+  width: 33%;
+  border-left: 1px lightgray solid;
+  height: 90%;
+}
+
+.coinHeader .rightSide .rightSections h5 {
+  font-size: 1.1rem;
+  margin-left: 10%;
+  line-height: normal;
+}

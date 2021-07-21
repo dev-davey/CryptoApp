@@ -1,6 +1,5 @@
 .NavBar {
   background-color: black;
-  width: 100%;
   height: 80px;
   display: flex;
   border-bottom: white 3px solid;
@@ -19,8 +18,8 @@
   text-decoration: none;
   color: white;
   font-size: 18px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 14px;
+  margin-right: 14px;
 }
 
 .NavBar .rightSide {
@@ -59,12 +58,22 @@
   .NavBar .leftSide .links a {
     font-size: 15px;
   }
+
+  .NavBar .rightSide input {
+    width: 120px;
+    font-size: 12px;
+  }
+
+  .NavBar .rightSide button {
+    width: auto;
+    font-size: 14px;
+  }
 }
 
 @media only screen and (max-width: 750px) {
   .NavBar .leftSide button {
     display: flex;
-    margin-left: 2rem;
+    margin-left: 0rem;
   }
 
   .NavBar .leftSide .links {
@@ -88,5 +97,9 @@
   .NavBar .leftSide #hidden a {
     margin: 15px;
     font-size: 20px;
+  }
+
+  .NavBar .leftSide button {
+    padding: 5px;
   }
 }

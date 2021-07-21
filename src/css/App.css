@@ -1,0 +1,14 @@
+button {
+  cursor: pointer;
+}
+
+.coin-pages {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+.coin-pages button {
+  margin: 2px;
+}

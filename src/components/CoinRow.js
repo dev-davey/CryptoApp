@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import '../css/coinRow.css'
+import {Link} from 'react-router-dom'
 
 
 export default function CoinRow(props) {
@@ -59,12 +60,18 @@ export default function CoinRow(props) {
         <div className="container">
             <div className="list-items">
                 <div className="individuals twoItems">
-                <p>{props.rank}</p>
-                <img className="logo-img" src={props.imageLocation} alt='img logo'></img>
+                    <Link className="CoinLink" to={`/CoinInfo/${props.id}`}>
+                        <p>{props.rank}</p>
+                    </Link>
+                    <Link className="CoinLink" to={`/CoinInfo/${props.id}`}>
+                        <img className="logo-img" src={props.imageLocation} alt='img logo'></img>
+                    </Link>
                 </div>
 
                 <div className="individuals">
-                <p>{props.name}</p>
+                    <Link className="CoinLink" to={`/CoinInfo/${props.id}`}>
+                        <p>{props.name}</p>
+                    </Link>
                 </div>
 
                 <div className="individuals">
