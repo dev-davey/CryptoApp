@@ -1,18 +1,25 @@
 .NavBar {
-  background-color: black;
-  height: 80px;
+  background-color: #00000f;
+  height: 100px;
   display: flex;
   border-bottom: white 3px solid;
+  width: 100%;
+  flex-wrap: nowrap;
+  z-index: 1;
 }
 
 .NavBar .leftSide {
-  flex: 50%;
+  flex: 70%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  flex-wrap: nowrap;
 }
 .NavBar .leftSide .links {
   max-height: 80px;
+  width: 100%;
+  display: inline-block;
+  margin-left: 3em;
 }
 .NavBar .leftSide .links a {
   text-decoration: none;
@@ -20,33 +27,42 @@
   font-size: 18px;
   margin-left: 14px;
   margin-right: 14px;
+  display: inline-block;
+  padding: 15px;
+  font-weight: 600;
+  position: relative;
+}
+
+.NavBar .leftSide .links a::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.NavBar .leftSide .links a:hover::before {
+  transform: scaleX(1);
 }
 
 .NavBar .rightSide {
-  flex: 50%;
+  flex: 30%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   padding-right: 25px;
 }
 
-.rightSide input {
-  width: 220px;
-  height: 30px;
-  border: none;
-  text-align: center;
-  font-size: 18px;
-  color: black;
+.rightSide .logo {
+  height: 11em;
 }
 
-.rightSide button {
-  height: 34px;
-  width: 70px;
-  font-size: 16px;
-  margin-bottom: 1px;
-}
-
-.NavBar .leftSide button {
+.NavBar .leftSide .menu {
   display: none;
 }
 
@@ -56,7 +72,7 @@
 
 @media only screen and (max-width: 850px) {
   .NavBar .leftSide .links a {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .NavBar .rightSide input {
@@ -66,14 +82,21 @@
 
   .NavBar .rightSide button {
     width: auto;
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 
 @media only screen and (max-width: 750px) {
-  .NavBar .leftSide button {
-    display: flex;
-    margin-left: 0rem;
+  .NavBar .leftSide .menu {
+    display: block;
+    margin-left: 2em;
+    height: 35px;
+    width: 35px;
+  }
+
+  .NavBar .leftSide .menu:hover {
+    cursor: pointer;
+    opacity: 0.8;
   }
 
   .NavBar .leftSide .links {
@@ -84,22 +107,18 @@
     position: absolute;
     left: 0px;
     top: 80px;
-    height: 230px;
-    max-height: 230px;
+    max-height: 300px;
     width: 100%;
-    background-color: black;
+    background-color: #00000f;
     display: flex;
     flex-direction: column;
     z-index: 1;
     align-items: center;
+    margin-left: 0;
   }
 
   .NavBar .leftSide #hidden a {
-    margin: 15px;
-    font-size: 20px;
-  }
-
-  .NavBar .leftSide button {
-    padding: 5px;
+    margin: 2px;
+    font-size: 14px;
   }
 }

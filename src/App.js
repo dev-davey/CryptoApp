@@ -3,11 +3,12 @@ import CoinList from './components/CoinList'
 import StickyHeader from './components/StickyHeader';
 import {
   BrowserRouter as Router, 
-  Route, Switch 
+  Route 
 } from 'react-router-dom';
 import './css/App.css'
 import NavBar from './components/NavBar';
 import CoinInfo from './components/CoinInfo';
+import Header from './components/Header';
 
 
 export default class App extends Component {
@@ -39,24 +40,31 @@ export default class App extends Component {
     return (
       <Router>
           <Route exact path="/" Component={App}>
-          <NavBar/>
-          <StickyHeader/>
-        {this.state.data ? (
-          <div>
-          <CoinList 
-           data={this.state.data}
-          /> 
-          </div>
-          ): (<div></div>) 
-          }
-          
-          <div className="coin-pages">
-            <button onClick={()=>this.nomicsCall(1)}>1</button>
-            <button onClick={()=>this.nomicsCall(2)}>2</button>
-            <button onClick={()=>this.nomicsCall(3)}>3</button>
-            <button onClick={()=>this.nomicsCall(4)}>4</button>
-            <button onClick={()=>this.nomicsCall(5)}>5</button>
-          </div>
+              <NavBar/>
+              {this.state.data ? 
+              <Header 
+                data={this.state.data}
+              />
+              : <div></div>}
+              <div className="scroll">
+                <StickyHeader/>
+                {this.state.data ? (
+                <div>
+                  <CoinList 
+                  data={this.state.data}
+                  /> 
+                </div>
+                ): (<div></div>) 
+                }
+              </div>
+              
+              <div className="coin-pages">
+                <button onClick={()=>this.nomicsCall(1)}>1</button>
+                <button onClick={()=>this.nomicsCall(2)}>2</button>
+                <button onClick={()=>this.nomicsCall(3)}>3</button>
+                <button onClick={()=>this.nomicsCall(4)}>4</button>
+                <button onClick={()=>this.nomicsCall(5)}>5</button>
+              </div>
           </Route>
           <Route exact path="/CoinInfo/:id" component={CoinInfo}></Route>
         </Router>

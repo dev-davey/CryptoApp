@@ -12,3 +12,6 @@ button {
 .coin-pages button {
   margin: 2px;
 }
+.scroll {
+  overflow-x: scroll;
+}

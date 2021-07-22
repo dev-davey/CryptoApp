@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+
 import '../css/coinRow.css'
 import {Link} from 'react-router-dom'
+
 
 
 export default function CoinRow(props) {
@@ -100,7 +101,8 @@ export default function CoinRow(props) {
                 <p>{convertToInternationalCurrencySystem(props.circulatingSupply)}</p>
                 <p>{props.symbol}</p>  
                 </div>
-        </div>        
-        </div>
+            </div>        
+            </div>
+        
     )
 }
