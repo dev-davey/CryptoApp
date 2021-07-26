@@ -2,10 +2,12 @@
   background-color: #00000f;
   height: 100px;
   display: flex;
-  border-bottom: white 3px solid;
+
   width: 100%;
   flex-wrap: nowrap;
   z-index: 1;
+  position: sticky;
+  top: 0;
 }
 
 .NavBar .leftSide {

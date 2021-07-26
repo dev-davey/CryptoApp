@@ -85,21 +85,21 @@ export default function CoinRow(props) {
 
                 <div className="individuals">
                 <p className={color}>
-                {`${formatter.format(change * 100)}%`}</p> 
+                {`${formatter.format(change)}%`}</p> 
                 </div>
 
                 <div className="individuals">
                 <p className={weeklyColor}>
-                {`${formatter.format(props.weekChange * 100)}%`}
+                {`${formatter.format(props.weekChange)}%`}
                 </p> 
                 </div>    
 
                 <div className="individuals">
-                <p>{convertToInternationalCurrencySystem(props.volume.slice(0, props.volume.indexOf('.') + 3))}</p>  
+                <p>{convertToInternationalCurrencySystem(props.volume)}</p>  
                 </div>
                 <div className="individuals supply">
                 <p>{convertToInternationalCurrencySystem(props.circulatingSupply)}</p>
-                <p>{props.symbol}</p>  
+                <p>{props.symbol.toUpperCase()}</p>  
                 </div>
             </div>        
             </div>

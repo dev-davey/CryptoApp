@@ -1,0 +1,78 @@
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: rgb(244, 244, 245);
+  margin: auto;
+}
+
+.headerContainer .leftSide {
+  flex: 50%;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 4em;
+  font-size: 15px !important;
+}
+
+.headerContainer .leftSide p {
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.headerContainer .rightSide {
+  display: flex;
+  flex: 50%;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerContainer .rightSide .leaderInfo {
+  margin-left: 2em;
+  line-height: 0.25em;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.headerContainer .rightSide img {
+  height: 5em;
+}
+
+.headerContainer .rightSide .rotate {
+  animation: rotation 5s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+@media only screen and (max-width: 750px) {
+  .headerContainer .rightSide .leaderInfo {
+    font-size: 15px;
+  }
+
+  .headerContainer .rightSide img {
+    height: 3em;
+  }
+
+  .headerContainer .leftSide {
+    margin-left: 1em;
+  }
+
+  .headerContainer .leftSide p {
+    font-size: 15px;
+  }
+}

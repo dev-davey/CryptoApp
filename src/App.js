@@ -9,6 +9,8 @@ import './css/App.css'
 import NavBar from './components/NavBar';
 import CoinInfo from './components/CoinInfo';
 import Header from './components/Header';
+import News from './components/News'
+import HeatMap from './components/HeatMap';
 
 
 export default class App extends Component {
@@ -27,7 +29,7 @@ export default class App extends Component {
  }
 
   nomicsCall = (page) => {
-    fetch(`https://api.nomics.com/v1/currencies/ticker?key=3d4688a133b735636eedb0cb329a8bcbcbf52de6&interval=1d,7d,30d&convert=USD&per-page=100&page=${page}`)
+    fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=${page}&sparkline=false&price_change_percentage=24h%2C7d`)
     .then(response => response.json())
     .then(data => {console.log(data)
       this.setState({data: data}) 
@@ -67,6 +69,9 @@ export default class App extends Component {
               </div>
           </Route>
           <Route exact path="/CoinInfo/:id" component={CoinInfo}></Route>
+          <Route exact path="/News" component={News}></Route>
+          <Route exact path="/HeatMaps" component={HeatMap}></Route>
         </Router>
+          
         )}
 }

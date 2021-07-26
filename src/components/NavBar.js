@@ -14,8 +14,9 @@ export default function NavBar() {
             <div className="leftSide">
                 <div className="links" id={showLinks ? "hidden" : ""}>
                 <Link to={`/`}>Home</Link>
+                <Link to={`/News`}>Top Headlines</Link>
+                <Link to={`/HeatMaps`}>Heat Maps</Link>
                 <a href="#">Shop</a>
-                <a href="#">About</a>
                 <a href="#">Contact</a>
                 </div>
                 <img className="menu" alt="menu icon" src={menu} onClick={()=> setShowLinks(!showLinks)}/>

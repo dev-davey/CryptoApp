@@ -9,15 +9,15 @@ const CoinList = (props)=> {
         <CoinRow
         key={coins.id}
         id={coins.id}
-        imageLocation={coins?.logo_url ? coins.logo_url : ''} 
-        rank={coins?.rank ? coins.rank : ''}
+        imageLocation={coins?.image ? coins.image : ''} 
+        rank={coins?.market_cap_rank ? coins.market_cap_rank: ''}
         name={coins?.name ? coins.name : ''} 
         symbol={coins?.symbol ? coins.symbol : ''}
         marketCap={coins?.market_cap ? coins.market_cap : ''}
-        price={coins?.price ? coins.price : ''}
-        change={coins['1d']?.price_change_pct ? coins['1d'].price_change_pct : ''}
-        weekChange={coins['7d']?.price_change_pct ? coins['7d'].price_change_pct : ''}
-        volume={coins['1d']?.volume ? coins['1d'].volume : ''}
+        price={coins?.current_price ? coins.current_price : ''}
+        change={coins?.price_change_percentage_24h ? coins.price_change_percentage_24h : ''}
+        weekChange={coins?.price_change_percentage_7d_in_currency ? coins.price_change_percentage_7d_in_currency : ''}
+        volume={coins?.total_volume ? coins.total_volume : ''}
         circulatingSupply={coins?.circulating_supply ? coins.circulating_supply : ''}  
         />
         ) 

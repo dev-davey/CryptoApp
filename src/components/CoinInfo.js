@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import NavBar from './NavBar'
 import '../css/CoinInfo.css'
+import Chart from './Chart.js';
+import Description from './Description';
+
 
 export default class CoinInfo extends Component {
     constructor(props){
         super(props);
         this.state = {
-            coinData: '',
-            dailyData:'',
+            chartData: '',
+            coinData:'',
             dayOne: '1d'
         }
       }
@@ -38,22 +41,41 @@ export default class CoinInfo extends Component {
         }
     }
 
+    
 
-    nomicsCall = () => {
-        fetch(`https://api.nomics.com/v1/currencies/ticker?key=3d4688a133b735636eedb0cb329a8bcbcbf52de6&ids=${this.props.match.params.id}&interval=1d,7d,30d&convert=USD`)
+    chartCall = () => {
+        fetch(`https://api.coingecko.com/api/v3/coins/${this.props.match.params.id}/market_chart?vs_currency=usd&days=30&interval=daily`)
         .then(response => response.json())
         .then(data => {console.log(data)
-          this.setState({coinData: data})
-          this.setState({dailyData: this.state.coinData[0]}) 
-          console.log(this.state.dailyData)
+          this.setState({chartData: data})
+        //   this.setState({dailyData: this.state.coinData[0]}) 
+        //   console.log(this.state.dailyData)
+        //this.chartInfo()
         })
         
         .catch(error => console.log(error.message))
       }
+
+      coinCall = () => {
+        fetch(`https://api.coingecko.com/api/v3/coins/${this.props.match.params.id}?tickers=false&market_data=true`)
+        .then(response => response.json())
+        .then(resData => {console.log(resData)
+          this.setState({coinData: resData})
+          console.log(resData)
+        })
+        
+        .catch(error => console.log(error.message))
+
+      }
+
+    
    
        componentDidMount(){
-           this.nomicsCall()
+           this.chartCall()
+           this.coinCall()
        } 
+
+
 
 
     render() {
@@ -62,30 +84,37 @@ export default class CoinInfo extends Component {
                 <NavBar/>
                 <div className="coinHeader">
                     <div className="leftSide">
-                        <img src={this.state?.coinData[0]?.logo_url} alt="" />
+                        <img src={this.state?.coinData?.image?.small} alt="coinLogo" />
                         <div className="leftNames">
-                            <h2>{this.state?.coinData[0]?.name}</h2>
-                            <h2>{`$${this.state?.coinData[0]?.currency}`}</h2>
+                            <p>{this.state?.coinData?.name}</p>
+                            <p>{`Rank #${this.state?.coinData?.coingecko_rank}`}</p>
                         </div>
                     </div>
                     <div className="rightSide">
                     <div className="rightSections">
-                        <h5>Market Cap</h5>
-                        <h5>{this.convertToInternationalCurrencySystem(this.state?.coinData[0]?.market_cap)}</h5>
+                        <p>Market Cap</p>
+                        <p>{this.convertToInternationalCurrencySystem(this.state?.coinData?.market_data?.market_cap?.usd)}</p>
                         </div>
                         <div className="rightSections">
-                        <h5>Current Price</h5>
-                        <h5>{`$${this.convertToInternationalCurrencySystem(this.state?.coinData[0]?.price)}`}</h5>
+                        <p>Current Price</p>
+                        <p>{`$${this.convertToInternationalCurrencySystem(this.state?.coinData?.market_data?.current_price?.usd)}`}</p>
                         </div>
                         <div className="rightSections">
-                        <h5>All Time High</h5>
-                        <h5>{`$${this.convertToInternationalCurrencySystem(this.state?.coinData[0]?.high)}`}</h5>
+                        <p>All Time High</p>
+                        <p>{`$${this.convertToInternationalCurrencySystem(this?.state?.coinData?.market_data?.ath?.usd)}`}</p>
                         </div>
                         <div className="rightSections">
-                        <h5>24h Change</h5>
-                        <h5>{this.state?.dailyData['1d']?.price_change_pct}</h5>
+                        <p>24h Change</p>
+                        <p>{'%' + this?.state?.coinData?.market_data?.price_change_percentage_24h.toFixed(2)}</p>
                         </div>
                     </div>
+                </div>
+                <Chart coinData={this.state.chartData}/>
+                <div className="coinDescription">
+                    <Description 
+                    coin={this.state?.coinData?.name}
+                    description={this?.state?.coinData?.description?.es} 
+                    />
                 </div>
             </div>
         )

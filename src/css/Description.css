@@ -1,0 +1,11 @@
+.descriptionContainer {
+  width: 80vw;
+  margin: auto;
+}
+
+.descriptionContainer p {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.5em;
+  letter-spacing: 0.8px;
+}

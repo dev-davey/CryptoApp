@@ -9,6 +9,7 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid lightgray;
+  width: 100%;
 }
 
 .individuals {
