@@ -1,8 +1,7 @@
 .NavBar {
-  background-color: #00000f;
+  background-color: rgb(19, 18, 18);
   height: 100px;
   display: flex;
-
   width: 100%;
   flex-wrap: nowrap;
   z-index: 1;
@@ -62,6 +61,7 @@
 
 .rightSide .logo {
   height: 11em;
+  margin-bottom: 0.5em;
 }
 
 .NavBar .leftSide .menu {
@@ -111,7 +111,7 @@
     top: 80px;
     max-height: 300px;
     width: 100%;
-    background-color: #00000f;
+    background-color: rgb(19, 18, 18);
     display: flex;
     flex-direction: column;
     z-index: 1;

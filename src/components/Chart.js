@@ -20,7 +20,7 @@ export default function chart(props) {
 
     let chartInfo = () => {
         if (props.coinData){
-            let chartData = props.coinData.prices.map(prices =>
+            let chartData = props?.coinData?.prices?.map(prices =>
                 prices = prices[1]
                 )
             console.log(chartData)  

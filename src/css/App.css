@@ -15,3 +15,26 @@ button {
 .scroll {
   overflow-x: scroll;
 }
+
+.searchForm {
+  background-color: rgb(19, 18, 18);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.searchForm .searchInput {
+  height: 1.7em;
+  width: 25vw;
+  max-width: 600px;
+  min-width: 240px;
+  margin-bottom: 7px;
+  margin-right: 1em;
+  border: none;
+  padding: 5px;
+  border-radius: 2px;
+}
+
+.searchForm .searchInput :focus {
+  border: solid 3px rgb(70, 70, 240);
+  background-color: rgba(38, 38, 238, 0.527);
+}

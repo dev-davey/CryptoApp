@@ -58,13 +58,16 @@ export default class CoinInfo extends Component {
 
       coinCall = () => {
         fetch(`https://api.coingecko.com/api/v3/coins/${this.props.match.params.id}?tickers=false&market_data=true`)
-        .then(response => response.json())
+        .then(response => 
+            response.json()
+        )
         .then(resData => {console.log(resData)
           this.setState({coinData: resData})
           console.log(resData)
         })
-        
-        .catch(error => console.log(error.message))
+        .catch(err => { 
+            this.setState({errorMessage: err.message});
+          })
 
       }
 
