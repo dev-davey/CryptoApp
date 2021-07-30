@@ -10,7 +10,7 @@ import NavBar from './components/NavBar';
 import CoinInfo from './components/CoinInfo';
 import Header from './components/Header';
 import News from './components/News'
-import HeatMap from './components/HeatMap';
+import Exchanges from './components/Exchanges';
 
 
 export default class App extends Component {
@@ -95,7 +95,7 @@ export default class App extends Component {
           </Route>
           <Route exact path="/CoinInfo/:id" component={CoinInfo}></Route>
           <Route exact path="/News" component={News}></Route>
-          <Route exact path="/HeatMaps" component={HeatMap}></Route>
+          <Route exact path="/Exchanges" component={Exchanges}></Route>
         </Router>
           
         )}
