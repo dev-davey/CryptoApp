@@ -87,10 +87,10 @@ export default function Header(props) {
             <div className="rightSide">
                 <img className="rotate" src={props?.data[0]?.image} alt="" />
                 <div className="leaderInfo">
-                    <p>Top Coin</p>
+                    <p>Leader</p>
                     <p>{props?.data[0]?.name}</p>
                     <p className={color}>{`${formatter.format(change)}%`}</p>
-                    <p>{'$' + convertToInternationalCurrencySystem(props?.data[0]?.market_cap)}</p>
+                    <p className="price">{'$' + convertToInternationalCurrencySystem(props?.data[0]?.market_cap)}</p>
                     
                 </div>
             </div>

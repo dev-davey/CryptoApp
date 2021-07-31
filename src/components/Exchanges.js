@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Nav from './NavBar';
-import ExchangeList from './ExchangeList'
-import StickyHeader from './StickyHeader'
-import '../css/ExchangeComponent.css'
+import ExchangeTable from './ExchangeTable';
+import '../css/Exchanges.css'
+
 
 export default class Exchanges extends Component {
     constructor(props){
@@ -28,38 +28,23 @@ export default class Exchanges extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <Nav/>
-                <h1>List of Top Trusted CryptoCurrency Exchanges</h1>
-                
-                {this.state.data? (
-                    <div className="overFlow">
-                    <div className="flex-container">
-                    <div className="labels first">
-                        <p>Rank</p>
-                    </div>
-                    <div className="labels">
-                        <p>Exchange</p>
-                    </div>
-                    <div className="labels trust">
-                        <p>Trust Rank</p>
-                    </div>
-                    <div className="labels">
-                        <p>Website</p>
-                    </div>
-                    <div className="labels year">
-                        <p>Year Started</p>
-                    </div>
-                    <div className="labels">
-                        <p>24h Volume</p>
-                    </div>
+                <div className="heading">
+                    <h1>List of Top Trusted CryptoCurrency Exchanges</h1>
                 </div>
-                        <ExchangeList 
+                <div className="scroll">
+                {this.state.data? (
+                    
+                        <ExchangeTable 
                         data={this.state.data}
                         /> 
-                    </div>
-                ): (<div></div>)}    
+                        
+                ): (<div></div>)}   
+
+                </div> 
             </div>
+            
         )
     }
 }

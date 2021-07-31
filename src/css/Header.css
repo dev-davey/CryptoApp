@@ -36,10 +36,15 @@
 
 .headerContainer .rightSide img {
   height: 5em;
+  margin: 1em;
 }
 
 .headerContainer .rightSide .rotate {
   animation: rotation 5s infinite linear;
+}
+
+.price {
+  font-weight: bold;
 }
 
 @keyframes rotation {

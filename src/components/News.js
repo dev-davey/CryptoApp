@@ -1,15 +1,17 @@
-import React from 'react'
+
 import NavBar from './NavBar'
 import '../css/News.css'
+import React, { Component } from 'react'
 
-export default function News() {
+export default class News extends Component {
 
-   
-    return (
-        <div>
-            <NavBar/>
-            <div class="widgetContainer">
-                 <iframe src="https://widgetscdn.cryptomood.com/sentiment-news?theme=light&direction=column&size=large"></iframe>
-            </div>  
-           </div>
-    )}
+    render() {
+        return (
+            <div>
+                <NavBar/>
+                <iframe width="100%" scrolling="yes" allowtransparency="true" frameborder="0" src="https://cryptopanic.com/widgets/news/?bg_color=FFFFFF&amp;font_family=sans&amp;header_bg_color=30343B&amp;header_text_color=FFFFFF&amp;link_color=0091C2&amp;news_feed=recent&amp;posts_limit=10&amp;text_color=333333&amp;title=Latest%20News" height="350px"></iframe>
+            </div>
+        )
+    }
+}
+

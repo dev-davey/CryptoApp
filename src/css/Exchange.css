@@ -19,6 +19,9 @@
   margin-left: 1rem;
   margin-right: 1rem;
 }
+.url {
+  overflow-wrap: break-word;
+}
 
 .twoItems {
   display: flex;
@@ -42,11 +45,28 @@
   width: auto;
 }
 
-.red {
-  color: red;
+.stickyTop {
+  background-color: #fffff0;
+  color: black;
+  width: 95%;
+  margin: auto;
 }
 
-.green {
-  color: green;
-  margin-left: 5px;
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+}
+
+.labels {
+  min-width: 130px;
+  width: 250px;
+  text-align: start;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.labels h3 {
+  font-size: 1rem;
 }

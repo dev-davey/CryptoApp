@@ -43,10 +43,10 @@ export default class CoinInfo extends Component {
 
     
 
-    chartCall = () => {
-        fetch(`https://api.coingecko.com/api/v3/coins/${this.props.match.params.id}/market_chart?vs_currency=usd&days=30&interval=daily`)
+    chartCall = (days) => {
+        fetch(`https://api.coingecko.com/api/v3/coins/${this.props.match.params.id}/market_chart?vs_currency=usd&days=${days}&interval=daily`)
         .then(response => response.json())
-        .then(data => {console.log(data)
+        .then(data => {console.log(data, 'marketchart')
           this.setState({chartData: data})
         //   this.setState({dailyData: this.state.coinData[0]}) 
         //   console.log(this.state.dailyData)
@@ -74,7 +74,7 @@ export default class CoinInfo extends Component {
     
    
        componentDidMount(){
-           this.chartCall()
+           this.chartCall(30)
            this.coinCall()
        } 
 
@@ -111,6 +111,12 @@ export default class CoinInfo extends Component {
                         <p>{'%' + this?.state?.coinData?.market_data?.price_change_percentage_24h.toFixed(2)}</p>
                         </div>
                     </div>
+                </div>
+                <div className="buttonContainer">
+                    <button onClick={() => this.chartCall(7)}>7d</button>
+                    <button onClick={() => this.chartCall(30)}>30d</button>
+                    <button onClick={() => this.chartCall(365)}>365d</button>
+                    <button onClick={() => this.chartCall('max')}>Max</button>
                 </div>
                 <Chart coinData={this.state.chartData}/>
                 <div className="coinDescription">

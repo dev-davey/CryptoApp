@@ -74,7 +74,8 @@ export default class App extends Component {
               />
               : <div></div>}
               <div className="scroll">
-                <StickyHeader/>
+                <StickyHeader
+                />
                 {this.state.data && this.state.filteredData ? (
                 <div>
                   <CoinList 
