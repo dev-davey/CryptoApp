@@ -11,6 +11,8 @@ import CoinInfo from './components/CoinInfo';
 import Header from './components/Header';
 import News from './components/News'
 import Exchanges from './components/Exchanges';
+import Shop from './components/Shop';
+import Footer from './components/Footer';
 
 
 export default class App extends Component {
@@ -82,7 +84,7 @@ export default class App extends Component {
                   data={this.state.filteredData}
                   /> 
                 </div>
-                ): (<div></div>) 
+                ): (<div><h3>Loading...</h3></div>) 
                 }
               </div>
               
@@ -93,10 +95,12 @@ export default class App extends Component {
                 <button onClick={()=>this.geckoCall(4)}>4</button>
                 <button onClick={()=>this.geckoCall(5)}>5</button>
               </div>
+              <Footer/>
           </Route>
           <Route exact path="/CoinInfo/:id" component={CoinInfo}></Route>
           <Route exact path="/News" component={News}></Route>
           <Route exact path="/Exchanges" component={Exchanges}></Route>
+          <Route exact path="/Shop" component={Shop}></Route>
         </Router>
           
         )}

@@ -2,8 +2,9 @@ import React, {useState} from 'react'
 import '../css/navbar.css'
 
 import {Link} from 'react-router-dom';
-import menu from '../img/menu.png'
 import logo from '../img/logo.png'
+import menu from '../img/menu.png'
+
 
 export default function NavBar() {
     
@@ -16,7 +17,7 @@ export default function NavBar() {
                 <Link to={`/`}>Home</Link>
                 <Link to={`/News`}>Top Headlines</Link>
                 <Link to={`/Exchanges`}>Exchanges</Link>
-                <a href="#">Shop</a>
+                <Link to={'/Shop'}>Shop</Link>
                 </div>
                 <img className="menu" alt="menu icon" src={menu} onClick={()=> setShowLinks(!showLinks)}/>
                 </div>

@@ -8,8 +8,7 @@
 
 .coinHeader img {
   height: 7em;
-  margin-bottom: 0.5em;
-  margin-right: 1.5em;
+  margin: 1em;
 }
 
 .coinHeader .leftSide {
@@ -22,6 +21,7 @@
 .coinHeader .leftSide p {
   font-size: 20px;
   font-weight: 300;
+  letter-spacing: 1px;
   margin-right: 1rem;
 }
 
@@ -42,6 +42,7 @@
   font-weight: 300;
   margin-left: 10%;
   line-height: 0.8em;
+  letter-spacing: 1px;
 }
 
 .hidden {

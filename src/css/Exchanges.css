@@ -1,13 +1,13 @@
-.container {
-  width: 100%;
+.scrolling {
+  overflow-x: scroll;
 }
 
 .heading {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
 }
-.scroll {
-  overflow-x: scroll;
+
+.heading h1 {
+  font-size: 1.5rem;
 }

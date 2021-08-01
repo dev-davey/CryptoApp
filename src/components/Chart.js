@@ -57,12 +57,12 @@ export default function chart(props) {
         labels: chartLength(),
         datasets: [
           {
-            label: '30 Day Price Action',
+            label: 'Price Action',
             data: chartInfo(),
             fill: false,
             backgroundColor: 'rgb(255, 99, 132)',
             borderColor: 'rgba(255, 99, 132, 0.6)',
-            pointRadius: 0
+            pointRadius: 3
           },
         ],
       };
@@ -70,7 +70,7 @@ export default function chart(props) {
         labels: chartLength(),
         datasets: [
           {
-            label: '30 Day Volume',
+            label: 'Trading Volume',
             data: volInfo(),
             fill: false,
             backgroundColor: 'rgb(255, 99, 132)',

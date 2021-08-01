@@ -16,8 +16,8 @@
 }
 
 .headerContainer .leftSide p {
-  font-size: 30px;
-  font-weight: 300;
+  font-size: 25px;
+  font-weight: 330;
 }
 
 .headerContainer .rightSide {
@@ -25,6 +25,9 @@
   flex: 50%;
   align-items: center;
   justify-content: center;
+}
+.headerContainer .rightSide p {
+  font-size: 20px;
 }
 
 .headerContainer .rightSide .leaderInfo {
@@ -58,15 +61,17 @@
 
 .red {
   color: red;
+  font-weight: bold;
 }
 
 .green {
   color: green;
+  font-weight: bold;
 }
 
 @media only screen and (max-width: 750px) {
-  .headerContainer .rightSide .leaderInfo {
-    font-size: 15px;
+  .headerContainer .rightSide .leaderInfo p {
+    font-size: 12px;
   }
 
   .headerContainer .rightSide img {

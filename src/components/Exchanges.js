@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Nav from './NavBar';
 import ExchangeTable from './ExchangeTable';
 import '../css/Exchanges.css'
+import Footer from './Footer';
 
 
 export default class Exchanges extends Component {
@@ -28,12 +29,13 @@ export default class Exchanges extends Component {
 
     render() {
         return (
+            <div>
+            <Nav/>
             <div className="container">
-                <Nav/>
                 <div className="heading">
-                    <h1>List of Top Trusted CryptoCurrency Exchanges</h1>
+                    <h1>Top Trusted CryptoCurrency Exchanges</h1>
                 </div>
-                <div className="scroll">
+                <div className="scrolling">
                 {this.state.data? (
                     
                         <ExchangeTable 
@@ -43,6 +45,8 @@ export default class Exchanges extends Component {
                 ): (<div></div>)}   
 
                 </div> 
+                <Footer/>
+            </div>
             </div>
             
         )

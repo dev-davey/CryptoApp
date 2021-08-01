@@ -89,9 +89,8 @@ export default function Header(props) {
                 <div className="leaderInfo">
                     <p>Leader</p>
                     <p>{props?.data[0]?.name}</p>
-                    <p className={color}>{`${formatter.format(change)}%`}</p>
+                    <p className={color} >{`${formatter.format(change)}%`}</p>
                     <p className="price">{'$' + convertToInternationalCurrencySystem(props?.data[0]?.market_cap)}</p>
-                    
                 </div>
             </div>
         </div>

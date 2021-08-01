@@ -10,7 +10,12 @@ button {
   margin: 1rem;
 }
 .coin-pages button {
-  margin: 2px;
+  margin: 0.2em;
+  background-color: rgb(122, 99, 255);
+  border: none;
+  padding: 8px;
+  width: 50px;
+  color: white;
 }
 .scroll {
   overflow-x: scroll;

@@ -3,6 +3,7 @@ import NavBar from './NavBar'
 import '../css/CoinInfo.css'
 import Chart from './Chart.js';
 import Description from './Description';
+import Footer from './Footer';
 
 
 export default class CoinInfo extends Component {
@@ -125,6 +126,7 @@ export default class CoinInfo extends Component {
                     description={this?.state?.coinData?.description?.es} 
                     />
                 </div>
+                <Footer/>
             </div>
         )
     }
