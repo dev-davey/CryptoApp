@@ -47,8 +47,7 @@ export default class CoinInfo extends Component {
     chartCall = (days) => {
         fetch(`https://api.coingecko.com/api/v3/coins/${this.props.match.params.id}/market_chart?vs_currency=usd&days=${days}&interval=daily`)
         .then(response => response.json())
-        .then(data => {console.log(data, 'marketchart')
-          this.setState({chartData: data})
+        .then(data => {this.setState({chartData: data})
         //   this.setState({dailyData: this.state.coinData[0]}) 
         //   console.log(this.state.dailyData)
         //this.chartInfo()
@@ -62,7 +61,7 @@ export default class CoinInfo extends Component {
         .then(response => 
             response.json()
         )
-        .then(resData => {console.log(resData)
+        .then(resData => {
           this.setState({coinData: resData})
           console.log(resData)
         })
@@ -75,7 +74,7 @@ export default class CoinInfo extends Component {
     
    
        componentDidMount(){
-           this.chartCall(30)
+           this.chartCall(365)
            this.coinCall()
        } 
 
@@ -91,7 +90,7 @@ export default class CoinInfo extends Component {
                         <img src={this.state?.coinData?.image?.small} alt="coinLogo" />
                         <div className="leftNames">
                             <p>{this.state?.coinData?.name}</p>
-                            <p>{`Rank #${this.state?.coinData?.coingecko_rank}`}</p>
+                            <p>{`Rank #${this.state?.coinData?.market_cap_rank}`}</p>
                         </div>
                     </div>
                     <div className="rightSide">

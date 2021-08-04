@@ -10,9 +10,9 @@ export default function Footer() {
                 <Link to={`/`}>Home</Link>
                 <Link to={`/News`}>Top Headlines</Link>
                 <Link to={`/Exchanges`}>Exchanges</Link>
-                <Link to={'/Shop'}>Shop</Link>
+                <a target="__blank" href="https://www.bonfire.com/store/the-crypto-merch-store/">Shop</a>
             </div>
-            <div className="copyRight"><p>&copy Copyright CryptoMonitor.com Design by Dev-Davey</p></div>
+            <div className="copyRight"><p>&copy; Copyright CryptoMonitor.com Design by Dev-Davey: Api Info Provided by <a href="coingecko.com">CoinGecko</a></p></div>
             <div className="footerLogo">
                 <img src={logo} alt="logo" />
             </div>

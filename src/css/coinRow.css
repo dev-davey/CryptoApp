@@ -21,12 +21,21 @@
 }
 
 .twoItems {
+  min-width: 200px;
+  width: 250px;
+  text-align: start;
+  margin-left: 1rem;
+  margin-right: 1rem;
   display: flex;
   align-items: center;
 }
 
+.twoItems img {
+  margin: 5px;
+}
+
 .twoItems p {
-  margin-right: 5px;
+  overflow-wrap: break-word;
 }
 
 .CoinLink {

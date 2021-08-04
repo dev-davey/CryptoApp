@@ -17,7 +17,7 @@ export default function NavBar() {
                 <Link to={`/`}>Home</Link>
                 <Link to={`/News`}>Top Headlines</Link>
                 <Link to={`/Exchanges`}>Exchanges</Link>
-                <Link to={'/Shop'}>Shop</Link>
+                <a target="__blank" href="https://www.bonfire.com/store/the-crypto-merch-store/">Shop</a>
                 </div>
                 <img className="menu" alt="menu icon" src={menu} onClick={()=> setShowLinks(!showLinks)}/>
                 </div>

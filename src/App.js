@@ -3,7 +3,7 @@ import CoinList from './components/CoinList'
 import StickyHeader from './components/StickyHeader';
 import {
   BrowserRouter as Router, 
-  Route 
+  Route, HashRouter 
 } from 'react-router-dom';
 import './css/App.css'
 import NavBar from './components/NavBar';
@@ -11,7 +11,6 @@ import CoinInfo from './components/CoinInfo';
 import Header from './components/Header';
 import News from './components/News'
 import Exchanges from './components/Exchanges';
-import Shop from './components/Shop';
 import Footer from './components/Footer';
 
 
@@ -23,6 +22,7 @@ export default class App extends Component {
       data: '',
       searchInput:'',
       searchData: '',
+      filteredData: ''
     }
   }
 
@@ -35,7 +35,7 @@ export default class App extends Component {
   geckoCall = (page) => {
     fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=200&page=${page}&sparkline=false&price_change_percentage=24h%2C7d`)
     .then(response => response.json())
-    .then(data => {console.log(data)
+    .then(data => {
       this.setState({data: data})
       this.filterCoins('') 
     })
@@ -46,7 +46,7 @@ export default class App extends Component {
 
   filterCoins = (val) => {
     let searchCoins = this.state.data.filter(searchCoins => 
-      searchCoins.id.includes(val)
+      searchCoins.id.toLowerCase().includes(val.toLowerCase())
       )
       this.setState({filteredData: searchCoins})
   }
@@ -56,19 +56,16 @@ export default class App extends Component {
     let value = event.target.value
     this.setState({searchInput: value})
     console.log(this.state.searchInput)
-    if(this.state.searchInput == ''){
-      this.setState({filteredData: this.state.data})
-    }
     this.filterCoins(value)
   }
 
   render() {
     return (
-      <Router>
+      <HashRouter>
           <Route exact path="/" Component={App}>
               <NavBar/>
               <form className="searchForm" onSubmit={this.searchCall}>
-                <input type="text" className="searchInput" onChange={this.handleChange} placeholder="Search By Name"/>
+                <input onclick="this.select" type="text" className="searchInput" onChange={this.handleChange} placeholder="Search By Name"/>
               </form>
               {this.state.data ? 
               <Header 
@@ -97,11 +94,11 @@ export default class App extends Component {
               </div>
               <Footer/>
           </Route>
-          <Route exact path="/CoinInfo/:id" component={CoinInfo}></Route>
+          
+          <Route path="/CoinInfo/:id" component={CoinInfo}></Route>
           <Route exact path="/News" component={News}></Route>
           <Route exact path="/Exchanges" component={Exchanges}></Route>
-          <Route exact path="/Shop" component={Shop}></Route>
-        </Router>
+        </HashRouter>
           
         )}
 }

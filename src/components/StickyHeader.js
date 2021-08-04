@@ -5,12 +5,10 @@ export default function StickyHeader() {
     return (
     <div className="stickyTop">
         <div className="flex-container">
-            <div className="labels">
+            <div className="twoItems">
                 <h3>Rank</h3>
             </div>
-            <div className="labels">
-                <h3>Crypto</h3>
-            </div>
+            
             <div className="labels">
                 <h3>Price</h3>
             </div>

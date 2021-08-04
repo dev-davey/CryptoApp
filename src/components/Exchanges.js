@@ -33,7 +33,7 @@ export default class Exchanges extends Component {
             <Nav/>
             <div className="container">
                 <div className="heading">
-                    <h1>Top Trusted CryptoCurrency Exchanges</h1>
+                    <title><h1>Top Trusted CryptoCurrency Exchanges</h1></title>
                 </div>
                 <div className="scrolling">
                 {this.state.data? (
@@ -42,7 +42,7 @@ export default class Exchanges extends Component {
                         data={this.state.data}
                         /> 
                         
-                ): (<div></div>)}   
+                ): (<div className="loading"><p>Loading...</p></div>)}   
 
                 </div> 
                 <Footer/>

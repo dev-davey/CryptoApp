@@ -23,7 +23,7 @@ export default function chart(props) {
             let chartData = props?.coinData?.prices?.map(prices =>
                 prices = prices[1]
                 )
-            console.log(chartData)  
+            
             return chartData
             }     
     }
@@ -62,7 +62,7 @@ export default function chart(props) {
             fill: false,
             backgroundColor: 'rgb(255, 99, 132)',
             borderColor: 'rgba(255, 99, 132, 0.6)',
-            pointRadius: 3
+            pointRadius: 1
           },
         ],
       };

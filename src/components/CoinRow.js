@@ -60,20 +60,18 @@ export default function CoinRow(props) {
     return (
         <div className="container">
             <div className="list-items">
-                <div className="individuals twoItems">
+                <div className="twoItems">
                     <Link className="CoinLink" to={`/CoinInfo/${props.id}`}>
                         <p>{props.rank}</p>
                     </Link>
                     <Link className="CoinLink" to={`/CoinInfo/${props.id}`}>
                         <img className="logo-img" src={props.imageLocation} alt='img logo'></img>
                     </Link>
-                </div>
-
-                <div className="individuals">
                     <Link className="CoinLink" to={`/CoinInfo/${props.id}`}>
                         <p>{props.name}</p>
                     </Link>
                 </div>
+
 
                 <div className="individuals">
                 <p>{'$' + convertToInternationalCurrencySystem(props.price)}</p>
