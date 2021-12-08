@@ -1,5 +1,5 @@
-import "../css/Coinrow.css";
 import { Link } from "react-router-dom";
+import "../css/Coinrow.css";
 
 export default function CoinRow(props) {
   //changing colors based on positive or negative percentage changes
@@ -46,45 +46,29 @@ export default function CoinRow(props) {
 
   return (
     <div className="container">
-      <div className="list-items">
-        <div className="twoItems">
-          <Link className="CoinLink" to={`/CoinInfo/${props.id}`}>
-            <p>{props.rank}</p>
-          </Link>
-          <Link className="CoinLink" to={`/CoinInfo/${props.id}`}>
-            <img
-              className="logo-img"
-              src={props.imageLocation}
-              alt="img logo"
-            ></img>
-          </Link>
-          <Link className="CoinLink" to={`/CoinInfo/${props.id}`}>
-            <p>{props.name}</p>
-          </Link>
-        </div>
-
-        <div className="individuals">
+      <div className="listitems-container">
+        <div className="individual-metrics">
           <p>{"$" + convertToInternationalCurrencySystem(props.price)}</p>
         </div>
 
-        <div className="individuals">
+        <div className="individual-metrics">
           <p>{"$" + convertToInternationalCurrencySystem(props.marketCap)}</p>
         </div>
 
-        <div className="individuals">
+        <div className="individual-metrics">
           <p className={color}>{`${formatter.format(change)}%`}</p>
         </div>
 
-        <div className="individuals">
+        <div className="individual-metrics">
           <p className={weeklyColor}>
             {`${formatter.format(props.weekChange)}%`}
           </p>
         </div>
 
-        <div className="individuals">
+        <div className="individual-metrics">
           <p>{convertToInternationalCurrencySystem(props.volume)}</p>
         </div>
-        <div className="individuals supply">
+        <div className="individual-metrics supply">
           <p>{convertToInternationalCurrencySystem(props.circulatingSupply)}</p>
           <p>{props.symbol.toUpperCase()}</p>
         </div>

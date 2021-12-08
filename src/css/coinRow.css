@@ -1,36 +1,26 @@
 .container {
   background-color: white;
   width: 100%;
-  position: relative;
 }
 
-.list-items {
+.listitems-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   border-bottom: 1px solid lightgray;
-  border: 1px solid blue;
+  height: 70px;
 }
 
-.individuals {
-  min-width: 130px;
-  width: 250px;
-  text-align: start;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  border: 1px solid blue;
-}
-
-.twoItems {
-  min-width: 200px;
-  width: 250px;
-  text-align: start;
-  margin-left: 1rem;
-  margin-right: 1rem;
+.individuals-container {
   display: flex;
-  align-items: center;
-  background-color: white;
+}
+
+.individual-metrics {
+  min-width: 250px;
+  max-width: 350px;
+  text-align: start;
+  margin-left: 1rem;
 }
 
 .twoItems img {

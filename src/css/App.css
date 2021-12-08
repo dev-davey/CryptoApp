@@ -18,7 +18,9 @@ button {
   color: white;
 }
 .scroll {
-  overflow-x: scroll;
+  position: relative;
+  overflow-x: hidden;
+  margin-left: 20px;
 }
 
 .searchForm {
